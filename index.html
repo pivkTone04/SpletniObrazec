@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="sl">
+   <head>
+	  <link rel="shortcut icon" href="slike/bvbLogo.ico">
+      <title>
+         Borussia Stadium
+      </title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <div id="main">
+         <div id="zgoraj">
+            <div class="zraven" id="lev">
+               <img class="img" src="slike/logo2.png" alt="logo">
+            </div>
+			
+            <div class="zraven" id="desen">
+               Ballspiel-Verein<br>
+               <b>Borussia</b>
+            </div>
+         </div>
+		 
+         <div id="op" class="wrapper">
+            <div class="zberi" id="izberi1">
+               
+				<div class="tekma">
+					<div class="buyticket" id="dantekme">
+						<a class="odstavek"><b> WEEK 4  <br>
+						TUE 11 OCT - 21:00 H </b><br></a>
+						<a> SIGNAL IDUNA PARK </a>
+					</div>
+				   
+					<div class="buyticket" id="liga">
+						<b>Champion's League</b>
+					</div>
+				   
+					<div class="buyticket" id="klub">
+						<img src="clubs/borusija.png" alt="bvb">
+						<b>VS.</b>
+						<img src="clubs/sivilia.png" alt="bvb">
+					</div>
+				   
+					<div class="buyticket" id="naVoljo">
+                  
+						<div class="gumb">
+							<button class="gumb" onclick="odpri('izberi1')"><b>BUY TICKET</b></button>
+						</div>
+					</div>
+				</div>	
+					
+					
+			   <div class="drop">
+					<div class="tabela">
+							
+						    <ul class="showcase">
+							  <li>
+								<div class="seat1"></div>
+								<small>Available</small>
+							  </li>
+							  <li>
+								<div class="seat1 selected"></div>
+								<small>Selected</small>
+							  </li>
+							  <li>
+								<div class="seat sold"></div>
+								<small>Sold</small>
+							  </li>
+							</ul>
+						<div class="izberaSedezev">
+							<label> Select section:</label>
+							 <select id="sedez">		
+								<option value="45">Home seats (45 €)</option>
+								<option value="60">Away seats (60 €)</option>
+								<option value="75">VIP seats (75 €)</option>
+								<option value="30">Budget seats (30 €)</option>
+							</select>
+						</div>		
+						
+						<div class="stadion">
+							STADIUM
+						</div>
+						<div id="sedezi">
+						<div class="row">
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+						  </div>
+
+						  <div class="row">
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat sold"></div>
+							<div class="seat sold"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+						  </div>
+
+						  <div class="row">
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat sold"></div>
+							<div class="seat sold"></div>
+						  </div>
+						  
+						  <div class="row">
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+						  </div>
+						  
+						  <div class="row">
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat sold"></div>
+							<div class="seat sold"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+						  </div>
+						 
+						  <div class="row">
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat"></div>
+							<div class="seat sold"></div>
+							<div class="seat sold"></div>
+							<div class="seat sold"></div>
+							<div class="seat"></div>
+						  </div>
+						</div>
+						
+						
+						
+						
+						</div>
+						<div class="racunica">
+							<p class="text">
+								SELECTED SEATS:<br>
+								PRICE (€):
+							</p>
+						</div>
+						<div class="racunica" id="money">
+							<p class="text">
+								<b><span id="count">0</span></b><br>
+								<b><span id="total">0</span></b>
+							</p>
+						</div>
+						
+						<div id="kupiZdaj" class="racunica">
+							<input type="submit" value="BUY NOW" onclick="prikazi()">
+						</div>
+					</div>
+			   </div>
+			
+			
+			
+			
+            <div class="zberi" id="izberi2">
+				<div class="tekma">   
+					   <div class="buyticket" id="dantekme1">
+						  <a class="odstavek"><b> WEEK 4  <br>
+						  FRI 17 NOV - 20:00 H </b><br></a>
+						  <a> ALLIANZ ARENA </a>
+					   </div>
+					   
+					   <div class="buyticket" id="liga1">
+						  <img src="clubs/bundeslig.png" alt="bvb">
+					   </div>
+					   
+					   <div class="buyticket" id="klub1">
+						  <img src="clubs/bayern.png" alt="bvb">
+						  <b>VS.</b>
+						  <img src="clubs/borusija.png" alt="bvb">
+					   </div>
+					   
+					   <div class="buyticket" id="naVoljo1">
+						  <div class="gumb2">
+							 <button class="gumb2" onclick="klik()"><b>SOLD OUT</b></button>
+						  </div>
+					   </div>
+				</div>
+            </div>
+        </div>
+    </div>
+	<div id="bancnaKartica">
+		<div class="BKK">
+			<div class="kartica">
+				<div id="ime">
+					Holder's name
+				</div>
+				<div id="cifra">
+					<span id="cifra1" class="dolzinaKartice">####</span>
+					<span id="cifra2" class="dolzinaKartice">####</span> 
+					<span id="cifra3" class="dolzinaKartice">####</span> 
+					<span id="cifra4" class="dolzinaKartice">####</span>
+				</div>
+				<div class="joj">	
+					<div class="zraven2">	
+						<span>APPLIES TO</span>
+						<div id="veljavnost">
+							<span id="mesec1">##</span>/<span id="leto1">##</span>
+						</div>
+					</div>
+					<div class="zraven2" id="zraven22">
+						<span>CCV</span>
+						<div id="CCVcifra">
+							###
+						</div>
+					</div>
+					<div class="zraven3">
+						<div id="Slikca">
+							<img src="slike/VISA.png" alt="visaSlika" onclick="odstrani()">
+						</div>
+					</div>
+				</div>
+			</div>
+				
+				
+			
+			<form class="container">
+				<div id="vdzigni">
+			
+				</div>
+				<span>CARD HOLDER</span>
+				<div class="pinNum">
+					<input id="cardOvnerText" class="lastnikKartice" type="text" placeholder="Holders name" onkeyup="cardOvner()" maxlength="25" required>
+				</div>
+				<span>CARD NUMBER</span>
+				<div class="pinNum2">				
+				
+						<input id="vnos1" class="stevilkaKartice" type="text" value="" maxlength="4" placeholder="XXXX" onkeyup="cardNum1(event)" required>
+						-
+						<input id="vnos2" class="stevilkaKartice" type="text" value="" maxlength="4" placeholder="XXXX" onkeyup="cardNum2(event)" required> 
+						-
+						<input id="vnos3" class="stevilkaKartice" type="text" value="" maxlength="4" placeholder="XXXX" onkeyup="cardNum3(event)" required>
+						-
+						<input id="vnos4" class="stevilkaKartice" type="text" value="" maxlength="4" placeholder="XXXX" onkeyup="cardNum4(event)" required>
+				</div>
+				
+				<div class="pinNum" id="letoMesecCCV">
+					<div class="datumCCV">
+						<span>EXP MM</span>
+							<div>
+								<select id="mesec">		
+									<option value="01">January 01</option>
+									<option value="02">February 02</option>
+									<option value="03">March 03</option>
+									<option value="04">April 04</option>
+									<option value="05">May 05</option>
+									<option value="06">June 06</option>
+									<option value="07">July 07</option>
+									<option value="08">August 08</option>
+									<option value="09">September 09</option>
+									<option value="10">October 10</option>
+									<option value="11">November 11</option>
+									<option value="12">December 12</option>
+								</select>
+							</div>
+					</div>
+					<div class="datumCCV">	
+						<span>EXP YY</span>
+						<div>
+							<select id="leto">		
+								<option value="23">2023</option>
+								<option value="24">2024</option>
+								<option value="25">2025</option>
+								<option value="26">2026</option>
+								<option value="27">2027</option>
+								<option value="28">2028</option>
+								<option value="29">2029</option>
+								<option value="30">2030</option>
+							</select>
+						</div>
+					</div>
+					<div class="CCVdatum">
+						<span>CCV</span>
+						<div>
+							<input id="CCV" type="text" maxlength="3" placeholder="XXX" onkeyup="checkCCV(event)" required>
+						</div>
+					</div>
+				</div>
+				<div class="nevem">
+					<button type="submit" class="submit" >SUBMIT</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="novBackground">
+	</div>
+	  
+	  <script src="js/sweetalert2.all.min.js"></script>
+	  <script src="js/script.js">
+	  </script>
+	  
+   </body>
+   </html>

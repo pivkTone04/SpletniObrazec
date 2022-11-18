@@ -1,0 +1,286 @@
+
+const tabela = document.querySelector(".tabela");						
+const seats = document.querySelectorAll(".row .seat:not(.sold)");
+const count = document.getElementById("count");
+const total = document.getElementById("total");
+const cena = document.getElementById("sedez");
+
+const polje = document.getElementById("cardOvnerText");
+const cifraEna = document.getElementById("vnos1");
+const cifraDva = document.getElementById("vnos2");
+const cifraTri = document.getElementById("vnos3");
+const cifraStiri = document.getElementById("vnos4");
+const CCV = document.getElementById("CCV");
+
+let cifra = document.getElementById("count");
+var prosim = document.getElementById("count");
+
+
+
+let ticketPrice = +cena.value;
+let stevilka =+ count.value;
+
+function imeTerCenaSedeza(imeSedeza, cenaSedeza) {
+  localStorage.setItem("selectedImeSedeza", imeSedeza);
+  localStorage.setItem("selectedCenaSedeza", cenaSedeza);
+}
+
+tabela.addEventListener("click", (e) => {		//oznaci sedez
+  if (
+    e.target.classList.contains("seat") &&
+    !e.target.classList.contains("sold")
+  ) {
+    e.target.classList.toggle("selected");
+
+    updateSelectedCount();
+  }
+});
+
+cena.addEventListener("change", (e) => {					//event
+  ticketPrice = +e.target.value;							//dobi vrednost, ki je zberem v selectu
+  imeTerCenaSedeza(e.target.selectedIndex, e.target.value);	//To poslje za DrugoFunkcijo(shrani nekam)
+  updateSelectedCount();									//posodobi
+});
+
+
+function updateSelectedCount() {
+  
+  const selectedSeats = document.querySelectorAll(".row .seat.selected");		//pogleda kolk sedezel je zbranih
+
+  const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
+
+
+  localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+
+  const selectedSeatsCount = selectedSeats.length;
+
+  if(selectedSeatsCount>5){
+	  
+	  klik5();
+	  
+  }
+
+  count.innerText = selectedSeatsCount;
+  total.innerText = selectedSeatsCount * ticketPrice;
+
+  imeTerCenaSedeza(cena.selectedIndex, cena.value);
+}
+
+function odpri(x){
+			document.getElementById(x).classList.toggle("izberiPovecaj");
+}
+		
+function prikazi(){
+	const selectedSeatss = document.querySelectorAll(".row .seat.selected");		
+		
+		if(count.innerText=='0')
+			klik4();
+		else if(selectedSeatss.length>5)
+			klik5();
+		
+		else{	
+			document.getElementById('bancnaKartica').style.display = "grid";
+			document.getElementById('novBackground').style.display = "block";
+		}
+		
+}
+		
+/*function odstrani(){
+			document.getElementById('bancnaKartica').style.display = "none";
+		}*/
+		
+
+
+document.querySelector('.lastnikKartice').oninput = () =>{
+    document.querySelector('#ime').innerText = document.querySelector('.lastnikKartice').value.toUpperCase();
+}
+
+document.querySelector('#vnos1').oninput = () =>{
+    document.querySelector('#cifra1').innerText = document.querySelector('#vnos1').value;
+}
+document.querySelector('#vnos2').oninput = () =>{
+    document.querySelector('#cifra2').innerText = document.querySelector('#vnos2').value;
+}
+document.querySelector('#vnos3').oninput = () =>{
+    document.querySelector('#cifra3').innerText = document.querySelector('#vnos3').value;
+}
+document.querySelector('#vnos4').oninput = () =>{
+    document.querySelector('#cifra4').innerText = document.querySelector('#vnos4').value;
+}
+
+
+document.querySelector('#mesec').oninput = () =>{
+    document.querySelector('#mesec1').innerText = document.querySelector('#mesec').value;
+}
+document.querySelector('#leto').oninput = () =>{
+    document.querySelector('#leto1').innerText = document.querySelector('#leto').value;
+}
+
+
+document.querySelector('#CCV').oninput = () =>{
+    document.querySelector('#CCVcifra').innerText = document.querySelector('#CCV').value;
+}
+
+
+function klik(){
+	Swal.fire({
+  position: 'top-end',
+  icon: 'error',
+  title: 'Tickets aren not avaible',
+  showConfirmButton: false,
+  timer: 1300
+})
+}
+
+function klik2(){
+	Swal.fire({
+  position: 'top-end',
+  icon: 'error',
+  title: 'You can not have number or tag in your name',
+  showConfirmButton: false,
+  timer: 2000
+})
+}
+
+function klik3(){
+	Swal.fire({
+  position: 'top-end',
+  icon: 'error',
+  title: 'You can not have a letter in your pin card',
+  showConfirmButton: false,
+  timer: 2000
+})
+}
+
+function klik4(){
+	Swal.fire({
+  position: 'top-end',
+  icon: 'error',
+  title: 'You must select at least 1 seat!',
+  showConfirmButton: false,
+  timer: 2000
+})
+}
+
+function klik5(){
+	Swal.fire({
+  position: 'top-end',
+  icon: 'error',
+  title: 'You can select maximum of 5 seats!',
+  showConfirmButton: false,
+  timer: 2000
+})
+}
+
+function potrdi(){
+Swal.fire({
+  
+  icon: 'success',
+  title: 'Success!',
+  showConfirmButton: false,
+  timer: 1300
+}).then((result) => {
+    window.location.reload(true);
+  });
+}
+
+
+function cardOvner(evt){
+	evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 127)) {
+        klik2();
+		polje.value = '';
+    }
+	
+	if(polje.value.length == 0){
+		document.getElementById("ime").innerHTML = "Holder's name";
+	}
+}
+
+function cardNum1(evt){
+	evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 106)) {
+        klik3();
+		cifraEna.value = '';
+    }
+	if(cifraEna.value.length == 0){
+		document.getElementById("cifra1").innerHTML = "####";
+	}
+}
+
+function cardNum2(evt){
+	evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 106)) {
+        klik3();
+		cifraDva.value = '';
+    }
+	if(cifraDva.value.length == 0){
+		document.getElementById("cifra2").innerHTML = "####";
+	}
+}
+
+function cardNum3(evt){
+	evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 106)) {
+        klik3();
+		cifraTri.value = '';
+    }
+	if(cifraTri.value.length == 0){
+		document.getElementById("cifra3").innerHTML = "####";
+	}
+}
+function cardNum4(evt){
+	evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 106)) {
+        klik3();
+		cifraStiri.value = '';
+    }
+	if(cifraStiri.value.length == 0){
+		document.getElementById("cifra4").innerHTML = "####";
+	}
+}
+
+function checkCCV(evt){
+	evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57 ) && (charCode < 96 || charCode > 106)) {
+        klik3();
+		CCV.value = '';
+    }
+	
+	if(CCV.value.length == 0){
+		document.getElementById("CCVcifra").innerHTML = "###";
+	}
+}
+
+
+
+var container = document.getElementsByClassName("pinNum2")[0];
+container.onkeyup = function(e) {
+    var target = e.srcElement;
+    var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+    var myLength = target.value.length;
+    if (myLength >= maxLength) {
+        var next = target;
+        while (next = next.nextElementSibling) {
+            if (next == null)
+                break;
+            if (next.tagName.toLowerCase() == "input") {
+                next.focus();
+                break;
+            }
+        }
+    }
+}
+
+
+document.getElementById("bancnaKartica").addEventListener("submit", (e) => {
+  e.preventDefault();
+  potrdi()	
+  
+});
