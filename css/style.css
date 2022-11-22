@@ -38,7 +38,7 @@ body, html{
 	width: 900px;
 	height: 100%;
 	min-height: 200px;
-	
+	position: relative;
 	border-radius: 3px;
 	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	
@@ -54,12 +54,14 @@ body, html{
 	
 	opacity: 1;
 	transition: 1s;
+	spacing: 3px;
 }
+
 
 .zberi{
 	
 	height: 100px;                           	/*TO JE ZA SPREMENIT!1!!!*/
-	opacity: 0.5;									/*TO JE ZA ZBRISAT1!!!*/
+	opacity: 0.6;									/*TO JE ZA ZBRISAT1!!!*/
 	/*background-image: url("background/background.png"); 	/*TO JE ZA ZBRISAT1!!!*/
 	/*border-right: 6px solid black;				/*TO JE ZA ZBRISAT1!!!*/
 	/*border-left: 6px solid black;				/*TO JE ZA ZBRISAT1!!!*/
@@ -96,21 +98,27 @@ body, html{
 	display: grid;
 	place-items: center;
 	font-size: 20px;
-	color: gray;
+	color: #545353;
 	width: 27%;
 }
+.slikca{
+	padding-right: 8px;
+}
+.slikcalevu{
+	padding-left: 8px;
+}
+
 #klub,#klub1{
 	
 	width: 20%;
 	/*background-color: aqua;*/
 	
-	color: gray;
+	color: #545353;
 	list-style: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
 
 
 #naVoljo,#naVoljo1{
@@ -135,7 +143,7 @@ body, html{
 }
 
 .gumb2{
-  background-color: gray;
+  background-color: #969393;
   border: none;
   color: black;
   margin: 10px 10px;
@@ -562,3 +570,22 @@ input[type=submit]{
 /*c6a700
 dcbc18*/
 
+.swal2-icon.swal2-error {
+	border-color: #cfc967 !important;
+	color: #cfc967 !important;
+}
+
+
+.swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+    background-color: yellow !important;
+}
+
+.swal2-popup {
+  font-size: 1 !important;
+  font-family: Bahnschrift !important;
+}
+.swal2-title {
+  color: #262626 !important;
+}
+
+html.swal2-shown,body.swal2-shown { overflow-y: hidden !important; height: auto!important;}

@@ -123,18 +123,27 @@ document.querySelector('#CCV').oninput = () =>{
 
 
 function klik(){
+	
+	heightAuto: false,
 	Swal.fire({
-  position: 'top-end',
-  icon: 'error',
-  title: 'Tickets aren not avaible',
-  showConfirmButton: false,
-  timer: 1300
-})
+	icon: 'error',
+	title: 'Tickets are not avaible',
+	showConfirmButton: false,
+	timer: 1000,
+	background: '#969393',
+	showClass: {
+		popup: 'animate__animated animate__bounceIn'
+	},
+	hideClass: {
+		popup: 'animate__animated animate__bounceOut'
+	}
+	})
 }
 
 function klik2(){
 	Swal.fire({
-  position: 'top-end',
+  
+  heightAuto: false,
   icon: 'error',
   title: 'You can not have number or tag in your name',
   showConfirmButton: false,
@@ -144,7 +153,8 @@ function klik2(){
 
 function klik3(){
 	Swal.fire({
-  position: 'top-end',
+  
+  heightAuto: false,
   icon: 'error',
   title: 'You can not have a letter in your pin card',
   showConfirmButton: false,
@@ -154,17 +164,27 @@ function klik3(){
 
 function klik4(){
 	Swal.fire({
-  position: 'top-end',
+  
+  heightAuto: false,
   icon: 'error',
   title: 'You must select at least 1 seat!',
   showConfirmButton: false,
-  timer: 2000
+  timer: 1000,
+  background: '#969393',
+	showClass: {
+		popup: 'animate__animated animate__bounceIn'
+	},
+	hideClass: {
+		popup: 'animate__animated animate__bounceOut'
+	}
+	
 })
 }
 
 function klik5(){
 	Swal.fire({
-  position: 'top-end',
+  
+  heightAuto: false,
   icon: 'error',
   title: 'You can select maximum of 5 seats!',
   showConfirmButton: false,
