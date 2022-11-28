@@ -557,7 +557,7 @@ input[type=submit]{
 }
 
 #sedezi1,#sedezi2,#sedezi3{
-	display: none;
+	display: hidden;
 }
 
 /*.bg{

@@ -364,5 +364,4 @@ function spremeniSedez(){
 	const prodaniSedezi = document.querySelectorAll(".row .seat.sold");
 	
 	localStorage.setItem("izbraniSedezi", "prodaniSedezi");
-	localStorage.getItem("izbraniSedezi", "prodaniSedezi");
 }

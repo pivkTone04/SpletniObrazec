@@ -512,7 +512,7 @@
 					</div>
 				</div>
 				<div class="nevem">
-					<button type="submit" class="submit" onclick="spremeniSedez()">SUBMIT</button>
+					<button type="submit" class="submit" onclick="localStorage()">SUBMIT</button>
 				</div>
 			</form>
 		</div>
